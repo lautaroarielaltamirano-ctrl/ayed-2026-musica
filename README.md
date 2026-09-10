@@ -6,7 +6,7 @@ Repositorio del grupo. Partir de este esqueleto. No borrar la estructura de `src
 
 | Nombre | Mail | GitHub |
 | --- | --- | --- |
-| Altamirano, Lautaro |  | https://github.com/lautaroarielaltamirano-ctrl |
+| Altamirano, Lautaro | lautaroarielaltamirano@gmail.com | https://github.com/lautaroarielaltamirano-ctrl |
 | Medina, Alejo |  | https://github.com/alejomedina-dotcom |
 | Sarmiento, Emanuel Ricardo (42.833.522) | sarmientoemanuel177@gmail.com | https://github.com/emanuelsarmiento2218 |
 
