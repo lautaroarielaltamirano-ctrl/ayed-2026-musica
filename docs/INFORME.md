@@ -5,7 +5,10 @@ Completar y hacer crecer en cada entrega. No hace falta prosa larga: oraciones c
 ## 1. Grupo y tema
 
 - Tema: Biblioteca musical
-- Por qué lo eligieron (5–8 líneas): 
+- Por qué lo eligieron (5–8 líneas): Elegimos desarrollar una biblioteca musical porque nos permite trabajar con un conjunto de datos real almacenado en un archivo CSV.
+Creemos que es un tema sencillo de entender y fácil de aplicar en la materia.
+Nos permite practicar el uso de listas, diccionarios y funciones en Python.
+También facilita organizar la información de manera clara y ordenada.
 
 ## 2. Modelo
 
