@@ -40,8 +40,18 @@ def main():
         if opcion == "0":
             print("Chau.")
         elif opcion == "1":
-            listar_catalogo()
-        elif opcion in {"2", "3", "4", "5", "6", "7", "8", "9"}:
+            biblio.listar_canciones()
+        elif opcion == "5":
+            try:
+                id_cancion = int(input("Ingrese el ID de la canción: "))
+                if id_cancion <= 0 or id_cancion >= 68:
+                    print("Canción no encontrada.")
+                else:
+                    resultado = versionario.versiones_de(id_cancion)
+                    biblio.mostrar_canciones(resultado)
+            except ValueError:
+                print("Debe ingresar un número entero.")
+        elif opcion in {"2", "3", "4", "6", "7", "8", "9"}:
             pendiente()
         else:
             print("Opción inválida.")
