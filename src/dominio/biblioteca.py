@@ -22,6 +22,12 @@ class Biblioteca:
         for cancion in self.canciones:
             cancion.listar()
 
+    def mostrar_canciones(self, ids):
+        for id in ids:
+            for cancion in self.canciones:
+                if cancion.id == id:
+                    cancion.listar()
+
 class Versionario:
     def __init__(self):
         self.versiones = []
@@ -29,7 +35,7 @@ class Versionario:
             self.versiones.append(
                 Version(
                 versiones['cancion_id'],
-                versiones['version_de_id'],
+                versiones['version_id'],
                 versiones['tipo']
                 )
             )
@@ -37,7 +43,7 @@ class Versionario:
     def versiones_directas(self, id_cancion):
         directas = []
         for versiones in self.versiones:
-            if versiones.version_de_id == id_cancion:
+            if versiones.version_id == id_cancion:
                 directas.append(versiones.cancion_id)
         return directas
 

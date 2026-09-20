@@ -1,7 +1,8 @@
 from src.config import TEMA
 from src.dominio.musica import CATALOGO
-from src.dominio.biblioteca import Biblioteca
+from src.dominio.biblioteca import Biblioteca, Versionario
 biblio = Biblioteca()
+versionario = Versionario()
 
 TEMAS = {
     "pokedex": "Pokédex",
@@ -44,7 +45,9 @@ def main():
         elif opcion == "1":
             biblio.listar_canciones()
         elif opcion == "5":
-            pendiente()
+            id_cancion = int(input("Ingrese el ID de la canción: "))
+            resultado = versionario.versiones_de(id_cancion)
+            biblio.mostrar_canciones(resultado)
         elif opcion in {"2", "3", "4", "6", "7", "8", "9"}:
             pendiente()
         else:
