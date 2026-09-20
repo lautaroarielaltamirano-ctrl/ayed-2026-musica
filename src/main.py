@@ -22,7 +22,7 @@ def mostrar_menu():
     print("2. Ver detalle")
     print("3. Buscar")
     print("4. Ordenar")
-    print("5. Operación recursiva")
+    print("5. Mostrar versiones Alternativas")
     print("6. Colección principal (equipo / menú / playlist)")
     print("7. Historial (pila)")
     print("8. Cola")
@@ -43,7 +43,9 @@ def main():
             print("Chau.")
         elif opcion == "1":
             biblio.listar_canciones()
-        elif opcion in {"2", "3", "4", "5", "6", "7", "8", "9"}:
+        elif opcion == "5":
+            pendiente()
+        elif opcion in {"2", "3", "4", "6", "7", "8", "9"}:
             pendiente()
         else:
             print("Opción inválida.")
