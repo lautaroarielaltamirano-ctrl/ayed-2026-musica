@@ -8,7 +8,7 @@ Repositorio del grupo. Partir de este esqueleto. No borrar la estructura de `src
 | --- | --- | --- |
 | Altamirano, Lautaro | lautaroarielaltamirano@gmail.com | https://github.com/lautaroarielaltamirano-ctrl |
 | Medina, Alejo |  | https://github.com/alejomedina-dotcom |
-| Sarmiento, Emanuel Ricardo | sarmientoemanuel177@gmail.com | https://github.com/emanuelsarmiento2218 |
+| Sarmiento, Emanuel Ricardo (42.833.522) | sarmientoemanuel177@gmail.com | https://github.com/emanuelsarmiento2218 |
 
 **Tema elegido:** Biblioteca musical
 
