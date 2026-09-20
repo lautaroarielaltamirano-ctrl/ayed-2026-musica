@@ -9,4 +9,4 @@ class Cancion:
         self.duracion_seg = duracion_seg
 
     def listar(self):
-        print(f"{self.id:>3}  {self.artista} - {self.titulo}")
+        print(f"{self.id:>3}  {self.artista} - {self.titulo} - {self.album}")
