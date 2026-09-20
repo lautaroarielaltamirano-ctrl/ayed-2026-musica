@@ -4,5 +4,3 @@ class Version:
         self.cancion_id = cancion_id
         self.version_id = version_id
         self.tipo = tipo
-
-    def 123

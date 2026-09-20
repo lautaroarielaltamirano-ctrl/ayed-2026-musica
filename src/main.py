@@ -1,5 +1,7 @@
 from src.config import TEMA
-from src.dominio.musica import CATALOGO, listar_catalogo
+from src.dominio.musica import CATALOGO
+from src.dominio.biblioteca import Biblioteca
+biblio = Biblioteca()
 
 TEMAS = {
     "pokedex": "Pokédex",
@@ -40,7 +42,7 @@ def main():
         if opcion == "0":
             print("Chau.")
         elif opcion == "1":
-            listar_catalogo()
+            biblio.listar_canciones()
         elif opcion in {"2", "3", "4", "5", "6", "7", "8", "9"}:
             pendiente()
         else:

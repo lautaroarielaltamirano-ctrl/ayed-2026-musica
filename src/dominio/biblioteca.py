@@ -1,6 +1,6 @@
-from dominio.cancion import Cancion
-from dominio.version import Version
-from dominio.musica import CATALOGO, VERSIONES
+from .cancion import Cancion
+from .version import Version
+from .musica import CATALOGO, VERSIONES
 
 class Biblioteca:
     def __init__(self):
@@ -14,7 +14,7 @@ class Biblioteca:
                 temas['album'],
                 temas['genero'],
                 temas['anio'],
-                temas['duracion_segundos']
+                temas['duracion_seg']
                 )
             )
 
