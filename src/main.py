@@ -1,5 +1,8 @@
 from src.config import TEMA
-from src.dominio.cancion import CATALOGO, listar_catalogo
+from src.dominio.musica import CATALOGO, VERSIONES
+from src.dominio.biblioteca import Biblioteca, Versionario
+biblio = Biblioteca()
+versionario = Versionario()
 
 TEMAS = {
     "pokedex": "Pokédex",
@@ -20,7 +23,7 @@ def mostrar_menu():
     print("2. Ver detalle")
     print("3. Buscar")
     print("4. Ordenar")
-    print("5. Operación recursiva")
+    print("5. Mostrar versiones Alternativas")
     print("6. Colección principal (equipo / menú / playlist)")
     print("7. Historial (pila)")
     print("8. Cola")

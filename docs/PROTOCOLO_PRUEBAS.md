@@ -12,10 +12,10 @@ Mínimos: 8 casos escritos en E2; ejecutados en E3; 15 de regresión en E6 (pila
 | P02 | E1 | Elegir un ítem inexistente | id = -1 | mensaje claro, el menú sigue |  |  |
 | P03 | E2 | Operación recursiva sobre un ítem con cadena | ver consigna §3.3 | imprime la cadena completa |  |  |
 | P04 | E2 | Operación recursiva sobre un ítem sin derivados |  | solo el ítem (caso base) |  |  |
-| P05 | E1 | Pasar enter vacío en el menú |  | El menú no se rompe, vuelve a preguntar |  |  |
-| P06 | E1 | Elegir una opción de menú inválida (ej. “abc123”) |  | El menú no se rompe, vuelve a preguntar |  |  |  |
-| P07 | E1 | Elegir una opción no implementada todavía (ej. 4) |  | Devuelve el mensaje definido en pendiente() |  |  |  |
-| P08 | E2 | Operación recursiva sobre un item inexistente (ej. 123) |  |  |  |  |  |
+| P05 | E2 | Evaluar la función recursiva con una canción no existente (ej:100) | La función devuelve un mensaje de error claro, el menú sigue |  |  |  |
+| P06 | E2 | Evaluar la función recursiva con valor que no sea int (ej:abc) | La función devuelve un mensaje de error claro, el menú sigue |  |  |  |
+| P07 | E1 | Pasar enter vacío en el menú | El menú continúa |  |  |  |
+| P08 | E1 | Elegir una opción de menú inválida (ej. “abc”) |  |  |  |  |
 | P09 | E3 | Agregar a la colección principal hasta el tope | equipo de 6 / equivalente | el séptimo falla con excepción propia |  |  |
 | P10 | E3 | Desapilar historial vacío | pila vacía | excepción propia, menú sigue |  |  |
 | P11 | E3 | Desencolar cola vacía | cola vacía | excepción propia, menú sigue |  |  |

@@ -604,7 +604,60 @@ CATALOGO = [
     }
 ]
 
-
-def listar_catalogo():
-    for cancion in CATALOGO:
-        print(f"{cancion['id']:>3}  {cancion['artista']} - {cancion['titulo']}")
+VERSIONES = [
+        {
+        "cancion_id": 13,
+        "version_id": 12,
+        "tipo": "live"
+    },
+        {
+        "cancion_id": 16,
+        "version_id": 61,
+        "tipo": "cover"
+    },
+        {
+        "cancion_id":33,
+        "version_id":32,
+        "tipo":"live"
+    },
+        {
+        "cancion_id":48,
+        "version_id":47,
+        "tipo":"live"
+    },
+        {
+        "cancion_id":52,
+        "version_id":51,
+        "tipo":"remix"
+    },
+        {
+        "cancion_id":62,
+        "version_id":1,
+        "tipo":"live"
+    },
+        {
+        "cancion_id":63,
+        "version_id":19,
+        "tipo":"live"
+    },
+        {
+        "cancion_id":64,
+        "version_id":55,
+        "tipo":"live"
+    },
+        {
+        "cancion_id":65,
+        "version_id":54,
+        "tipo":"live"
+    },
+        {
+        "cancion_id":66,
+        "version_id":31,
+        "tipo":"cover"
+    },
+        {
+        "cancion_id":67,
+        "version_id":37,
+        "tipo":"remix"
+    }
+]

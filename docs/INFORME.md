@@ -34,10 +34,23 @@ Las estructuras mutables son el catálogo (Biblioteca) y la colección principal
 
 ## 3. Recursión (E2)
 
-- Función:
-- Caso base:
-- Caso recursivo:
-- Traza de un ejemplo real del dataset:
+- Función: versiones_de(self, id_cancion)
+- Caso base: Si la canción no tiene versiones alternativas → devuelve ["id_cancion"]
+- Caso recursivo: ["id_cancion"] + versiones_de(self, v)
+- Traza de un ejemplo real del dataset: 
+
+Ej.1: Canción sin versiones alternativas (id:17,La Balsa,Los Gatos):
+Llamada 1: versiones_de(17) → no tiene siguiente
+→ devuelve [17]
+Resultado: [17]
+
+Ej.2: Canción con versiones alternativas (id:12,Jijiji,Patricio Rey y sus Redonditos de Ricota):
+Llamada 1: versiones_de(12) → tiene siguiente (13)
+→ devuelve [12] + versiones_de(13)
+Llamada 2: versiones_de(13) → no tiene siguiente
+→ devuelve [13]
+Resultado: [12] + [13] = [12, 13]
+
 
 ## 4. TADs (E3)
 
