@@ -7,7 +7,7 @@ Fecha de esta versión del archivo:
 | Entrega | Fecha | Herramienta (ChatGPT, Cursor, Copilot, otra) | Para qué (diseño, código, debug, docs) | Qué pegaron o generaron | Qué reescribieron / revisaron a mano | Integrante |
 | --- | --- | --- | --- | --- | --- | --- |
 | E1 | 10/09/2026 | ChatGPT | Diseño del catálogo en forma de lista | Agilizar el armado del catálogo a mano | Verificamos que los campos se hayan copiado correctamente. Adaptación del contenido, edición de los archivos y revisión del proyecto | Sarmiento, Emanuel Ricardo. Lautaro Altamirano |
-| E2 |  |  |  |  |  |  |
+| E2 | 20/09/2026 | ChatGPT | Debug | Ayuda para implementar la función recursiva creada en el menú de main.py | Se verificó que la función no se rompa cuando el usuario ingresa valores inválidos | Sarmiento, Emanuel Ricardo. |
 | E3 |  |  |  |  |  |  |
 | E4 |  |  |  |  |  |  |
 | E5 |  |  |  |  |  |  |
