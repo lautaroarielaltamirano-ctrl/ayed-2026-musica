@@ -1,7 +1,8 @@
 from src.config import TEMA
-from src.dominio.musica import CATALOGO
-from src.dominio.biblioteca import Biblioteca
+from src.dominio.musica import CATALOGO, VERSIONES
+from src.dominio.biblioteca import Biblioteca, Versionario
 biblio = Biblioteca()
+versionario = Versionario()
 
 TEMAS = {
     "pokedex": "Pokédex",
@@ -44,7 +45,15 @@ def main():
         elif opcion == "1":
             biblio.listar_canciones()
         elif opcion == "5":
-            pendiente()
+            try:
+                id_cancion = int(input("Ingrese el ID de la canción: "))
+                if id_cancion <= 0 or id_cancion >= 68:
+                    print("ID inválido.")
+                else:
+                    resultado = versionario.versiones_de(id_cancion)
+                    biblio.mostrar_canciones(resultado)
+            except ValueError:
+                print("Debe ingresar únicamente un número entero.")
         elif opcion in {"2", "3", "4", "6", "7", "8", "9"}:
             pendiente()
         else:
