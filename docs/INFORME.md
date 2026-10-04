@@ -56,11 +56,15 @@ Resultado: [12] + [13] = [12, 13]
 
 | TAD | Operaciones | Invariante |
 | --- | --- | --- |
-| ListaEnlazada |  |  |
-| Pila |  |  |
-| Cola |  |  |
+| ListaEnlazada | tamanio () insertar_al_inicio () insertar_al_final () insertar_ordenado () eliminar () buscar () __iter__ () | Si la lista esta vacía, la cabeza también es vacía, de lo contrario es el primer nodo de la lista.  |
+| Pila          | apilar() desapilar() ver_tope() esta_vacia() __iter__() | Es una lista enlazada donde el último item que entra es el primero que sale. |
+| Cola          | encolar() desencolar() ver_frente() esta_vacia() __iter__() | Es una lista enlazada donde el primer item que entra es el primero que sale. |
 
 Dónde se usa cada uno en el dominio.
+
+La Lista Enlazada es utilizada por tres estructuras del /dominio: Por un lado, el catalogo de canciones y el catálogo de versiones (src/dominio/biblioteca.py), y por otro la playlist (src/dominio/playlist.py). 
+La pila se utiliza para manejar el historial de reproducción (src/dominio/historial.py). Está a su vez implementada como una Lista Enlazada
+La cola en este caso representa a la cola de reproduccion (src/dominio/cola_reproduccion.py). Al igual que la pila, también se implementa como Lista Enlazada
 
 ## 5. Complejidad (E4)
 

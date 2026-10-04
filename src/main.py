@@ -11,6 +11,11 @@ TEMAS = {
     "musica": "Biblioteca musical",
 }
 
+def pedir_id_cancion():
+    id_cancion = int(input("Ingrese el ID de la canción: "))
+    if id_cancion <= 0 or id_cancion >= 68:
+        raise ItemNoEncontradoError("Canción no encontrada.")
+    return id_cancion
 
 def pendiente():
     print("Todavía no está implementado. Completar en la entrega que corresponde.")
@@ -45,8 +50,8 @@ def mostrar_menu_pila():
     print("0. Volver")
 
 def mostrar_menu_cola():
-    print("1. Agregar a la cola")
-    print("2. Desenlistar de la cola")
+    print("1. Encolar")
+    print("2. Desencolar")
     print("0. Volver")
 
 def main():
@@ -64,9 +69,7 @@ def main():
             biblioteca.listar_canciones()
         elif opcion == "2":
             try:
-                id_cancion = int(input("Ingrese el ID de la canción: "))
-                if id_cancion <= 0 or id_cancion >= 68:
-                    raise ItemNoEncontradoError("Canción no encontrada.")
+                id_cancion = pedir_id_cancion()
                 biblioteca.mostrar_detalles(id_cancion)
 
             except ItemNoEncontradoError as e:
@@ -76,9 +79,7 @@ def main():
 
         elif opcion == "5":
             try:
-                id_cancion = int(input("Ingrese el ID de la canción: "))
-                if id_cancion <= 0 or id_cancion >= 68:
-                    raise ItemNoEncontradoError("Cancion no encontrada")
+                id_cancion = pedir_id_cancion()
                 resultado = versionario.versiones_de(id_cancion)
                 biblioteca.mostrar_canciones(resultado)
 
@@ -96,9 +97,7 @@ def main():
                     break
                 elif opcion_playlist == "1":
                     try: 
-                        id_cancion = int(input("Ingrese el ID de la canción: "))
-                        if id_cancion <= 0 or id_cancion >= 68:
-                            raise ItemNoEncontradoError("Cancion no encontrada")
+                        id_cancion = pedir_id_cancion()
                         playlist.agregar(biblioteca.buscar(id_cancion))
 
                     except ItemNoEncontradoError as e:
@@ -110,18 +109,19 @@ def main():
 
                 elif opcion_playlist == "2":
                     try:
-                        id_cancion = int(input("Ingrese el ID de la canción: "))
-                        if id_cancion <= 0 or id_cancion >= 68:
-                            raise ItemNoEncontradoError("Cancion no encontrada")
+                        id_cancion = pedir_id_cancion()
                         playlist.eliminar(biblioteca.buscar(id_cancion))
 
                     except ItemNoEncontradoError as e:
+                    
                         print(e)
                     except ValueError:
                         print("Debe ingresar un número entero.")
 
                 elif opcion_playlist == "3":
                     playlist.listar()
+                else:
+                    print("Opción inválida.")
         
         elif opcion == "7":
             opcion_pila = None
@@ -132,9 +132,7 @@ def main():
                     break
                 elif opcion_pila == "1":
                     try: 
-                        id_cancion = int(input("Ingrese el ID de la canción: "))
-                        if id_cancion <= 0 or id_cancion >= 68:
-                            raise ItemNoEncontradoError("Canción no encontrada.")
+                        id_cancion = pedir_id_cancion()
                         historial.apilar(biblioteca.buscar(id_cancion))
 
                     except ItemNoEncontradoError as e:
@@ -143,7 +141,9 @@ def main():
                         print("Debe ingresar un número entero.")
 
                 elif opcion_pila == "2":
-                    try: historial.desapilar()
+                    try:  
+                        print(f'Eliminada del historial: {historial.desapilar()}')
+
                     except PilaVaciaError as e:
                         print(e)
 
@@ -163,10 +163,23 @@ def main():
                 if opcion_cola == "0":
                     break
                 elif opcion_cola == "1":
-                    "try:" 
-            
-            pendiente()
-            "8. Capturá ColeccionLlenaError, PilaVaciaError, ColaVaciaError en las opciones 6, 7 y 8 del menú"
+                    try: 
+                        id_cancion = pedir_id_cancion()
+                        cola_reproduccion.encolar(biblioteca.buscar(id_cancion))
+                    
+                    except ItemNoEncontradoError as e:
+                        print(e)
+                    except ValueError:
+                        print("Debe ingresar un número entero.")
+
+                elif opcion_cola == "2":
+                    try: 
+                        print(f'Eliminada de la cola: {cola_reproduccion.desencolar()}')
+                    except ColaVaciaError as e:
+                        print(e)
+                
+                else:
+                    print("Opción inválida.")
 
         elif opcion in {"3", "4", "9"}:
             pendiente()
