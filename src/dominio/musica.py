@@ -1,4 +1,4 @@
-CATALOGO = [
+CANCIONES = [
     {
         "id": 1,
         "titulo": "De Musica Ligera",
