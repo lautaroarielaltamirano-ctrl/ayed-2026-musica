@@ -70,13 +70,23 @@ La cola en este caso representa a la cola de reproduccion (src/dominio/cola_repr
 
 | Operación | Tiempo | Espacio | Por qué |
 | --- | --- | --- | --- |
-|  |  |  |  |
+| Listar Catalogo        | O(N) | O(1) | Recorre toda la coleccion y lista todas las canciones usando el iterador de lista enlazada |
+| Busqueda lineal        | O(1) a O(N) | O(1) | Recorre desde el principio hasta encontrar el elemento buscado. Si lo encuentra en el primer intento el tiempo es O(1), en el segundo O(2), y asi hasta el ultimo O(N) |
+| Busqueda binaria       | O(log n)  | O(1) | Agarra el elemento de la posicion N//2, si coincide con lo buscado lo devuelve. Si no, determina en que 2 mitades está lo buscado y repite el proceso |
+| Ordenar por seleccion  | O(n²) | O(1) | No depende de si ya esta ordenado o no, va a tener que recorrer toda los elementos y comparandos para ver cual es el menor y ubicarlo |
+| Ordenar por insercion  | O(n) a O(n²) | O(1) | Si esta todo ordenado solo recorre 1 vez comparando, en el peor de los casos va a tener que correr todos los elementos anteriores y desplazarlos para cada elemento |
+| Ver detalle de un item | O(1) a O(N) | O(1) | Recorre desde el principio hasta encontrar la id ingresada, en el mejor caso la primera, en el peor la ultima de la lista |
+
 
 Mediciones (`time.perf_counter`):
 
 | Operación | n | segundos |
 | --- | --- | --- |
-|  |  |  |
+| Busqueda lineal (nombre)  | 67 |  |
+| Busqueda lineal (n x10)   | 670 |  |
+| Busqueda binaria (nombre) | 67 |  |
+| Busqueda binaria (n x10)  | 670 |  |
+
 
 ## 6. Persistencia (E5)
 
