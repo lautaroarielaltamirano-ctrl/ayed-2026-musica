@@ -4,6 +4,9 @@ from src.dominio.playlist import playlist
 from src.dominio.historial import historial
 from src.dominio.cola_reproduccion import cola_reproduccion
 from src.excepciones import ItemNoEncontradoError, ColeccionLlenaError, PilaVaciaError, ColaVaciaError
+from src.algoritmos.busqueda import busqueda_lineal, busqueda_binaria
+from src.algoritmos.ordenamiento import ordenar_seleccion, ordenar_insercion
+canciones = list(biblioteca.catalogo) #el documento de E4 dice que esta permitido si tenemos el catalogo en listaenlazada, como es nuestro caso
 
 TEMAS = {
     "pokedex": "Pokédex",
@@ -11,11 +14,19 @@ TEMAS = {
     "musica": "Biblioteca musical",
 }
 
+
+
 def pedir_id_cancion():
     id_cancion = int(input("Ingrese el ID de la canción: "))
     if id_cancion <= 0 or id_cancion >= 68:
         raise ItemNoEncontradoError("Canción no encontrada.")
     return id_cancion
+
+def pedir_titulo():
+    titulo = input("Ingrese el titulo de la cancion:" ).strip()
+    if not titulo: 
+        raise ValueError("Debe ingresar un titulo para iniciar la busqueda.")
+    return titulo
 
 def pendiente():
     print("Todavía no está implementado. Completar en la entrega que corresponde.")
@@ -35,6 +46,18 @@ def mostrar_menu():
     print("8. Cola")
     print("9. Guardar / cargar archivos")
     print("0. Salir")
+
+def mostrar_menu_busqueda():
+    print(f"=== Busqueda ===")
+    print("1. Buscar por Titulo (lineal)")
+    print("2. Buscar por Titulo (binaria) - Se reordenara la lista por titulo")
+    print("0. Volver")
+
+def mostrar_menu_ordenamiento():
+    print(f"=== Ordenamiento ===")
+    print("1. Ordenar por Titulo (insercion)")
+    print("2. Ordenar por ID (seleccion)")
+    print("0. Volver")
 
 def mostrar_menu_playlist():
     print(f"=== Playlist ===")
@@ -65,9 +88,10 @@ def main():
         opcion = input("> ").strip()
         if opcion == "0":
             print("Chau.")
-        elif opcion == "1":
+        elif opcion == "1": #listado
             biblioteca.listar_canciones()
-        elif opcion == "2":
+
+        elif opcion == "2": #detalles de una cancion
             try:
                 id_cancion = pedir_id_cancion()
                 biblioteca.mostrar_detalles(id_cancion)
@@ -77,7 +101,67 @@ def main():
             except ValueError:
                 print("Debe ingresar un número entero.")
 
-        elif opcion == "5":
+        elif opcion == "3": #busqueda
+            opcion_busqueda = None
+            while opcion_busqueda != "0":
+                mostrar_menu_busqueda()
+                opcion_busqueda = input("> ").strip()
+                if opcion_busqueda == "0":
+                    break
+                elif opcion_busqueda == "1":
+                    try: 
+                        titulo = pedir_titulo()
+                        resultado = busqueda_lineal(canciones, titulo, lambda c: c._titulo)
+
+                        if resultado is not None:
+                            print(resultado)
+                        
+                        else: print("No se encontro en la biblioteca.")
+                
+                    except ValueError as e:
+                        print(e)
+                
+                elif opcion_busqueda == "2":
+                    ordenar_insercion(canciones, lambda c: c._titulo)
+                    print("se reordeno la lista por titulo.")
+                    try:
+                        titulo = pedir_titulo()
+                        resultado = busqueda_binaria(canciones, titulo, lambda c: c._titulo)
+
+                        if resultado is not None:
+                            print(resultado)
+
+                        else: print("No se encontro en la biblioteca.")
+
+                    except ValueError as e:
+                        print(e)
+                
+                else:
+                    print("Opción inválida.")
+
+        elif opcion == "4": #ordenamiento
+                opcion_ordenamiento = None
+                while opcion_ordenamiento != "0":
+                        mostrar_menu_ordenamiento()
+                        opcion_ordenamiento = input("> ").strip()
+                        if opcion_ordenamiento == "0":
+                            break
+                        elif opcion_ordenamiento == "1":
+                            ordenar_insercion(canciones, lambda c: c._titulo)
+                            print("Se ordeno por titulo.")
+                            for c in canciones:
+                                print(c)
+
+                        elif opcion_ordenamiento == "2":
+                            ordenar_seleccion(canciones, lambda c: c._id)
+                            print("Se ordeno por id.")
+                            for c in canciones:
+                                print(c)
+
+                        else:
+                            print("Opción inválida.")
+
+        elif opcion == "5": #recursiva
             try:
                 id_cancion = pedir_id_cancion()
                 resultado = versionario.versiones_de(id_cancion)
@@ -181,7 +265,7 @@ def main():
                 else:
                     print("Opción inválida.")
 
-        elif opcion in {"3", "4", "9"}:
+        elif opcion in {"9"}:
             pendiente()
         else:
             print("Opción inválida.")
